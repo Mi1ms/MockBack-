@@ -3,7 +3,6 @@ import { NgModule }         from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
-
 import { AppComponent }        from './app.component';
 import { IndicateurComponent } from './indicateur/indicateur.component';
 import { BackUpComponent }     from './indicateur/back-up/back-up.component';
@@ -12,6 +11,7 @@ import { CrontaskComponent }   from './indicateur/crontask/crontask.component';
 import { AppService }          from './app.service';
 import { MockbackService }     from './indicateur/mockback.service';
 import { InMemoryDbService, HttpClientInMemoryWebApiModule }   from "angular-in-memory-web-api";
+
 
 const routes: Routes = [
     { path: 'menu', redirectTo: '/', pathMatch: 'full'},
@@ -29,11 +29,9 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    // HttpClientModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
-    HttpClientInMemoryWebApiModule.forRoot(
-      MockbackService
-    ),
+    HttpClientInMemoryWebApiModule.forRoot(MockbackService),
   ],
   providers: [
     // hooking up Injection

@@ -1,6 +1,6 @@
 <h2>Tout les indicateurs</h2>
 
-<table>
+<table class="table table-hover">
   <tr>
     <th> Id </th>
     <th>Derniere Update</th>
@@ -10,7 +10,10 @@
   <tr *ngFor="let indicateur of indicateurs">
     <th>{{ indicateur.id }}</th>
     <th>{{ indicateur.last_updated }}</th>
-    <th>{{ indicateur.status }}</th>
+    <th
+    [ngClass]="
+    indicateur.status === 'danger' ? 'th-alert' : (indicateur.status === 'warning' ? 'th-warning' : 'th-success')"
+    >{{ indicateur.status }}</th>
     <th>{{ indicateur.typ }}</th>
     <th>
       <button *ngIf="indicateur.typ === 'crontask'" [routerLink]="['crontask', indicateur]" routerLinkActive="active">Plus</button>

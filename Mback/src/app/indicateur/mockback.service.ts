@@ -21,19 +21,18 @@ export class MockbackService implements InMemoryDbService {
             id: 2,
             typ: "backup",
             last_updated: "2004",
-            status: "alert",
+            status: "danger",
+          },
+          {
+            id: 3,
+            typ: "crontask",
+            last_updated: "2005",
+            status: "success",
           },
     ];
     return {
       list: list
     };
   }
-
-  constructor(private http: HttpClient) {
-    // recuperer data => api/v1/indicators
-    console.log(http);
-  }
-
-  //
 
 }

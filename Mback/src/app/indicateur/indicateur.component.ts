@@ -14,7 +14,8 @@ export class IndicateurComponent implements OnInit {
   constructor(private indicateurService: MockbackService) { }
 
   ngOnInit() {
-    this.indicateurs = []//this.indicateurService.all;
+    // console.log(this.indicateurService.createDb().list);
+    this.indicateurs = this.indicateurService.createDb().list;
   }
 
 }
