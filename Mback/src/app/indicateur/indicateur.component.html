@@ -1,0 +1,20 @@
+<h2>Tout les indicateurs</h2>
+
+<table>
+  <tr>
+    <th> Id </th>
+    <th>Derniere Update</th>
+    <th>Statut</th>
+    <th>Type</th>
+  </tr>
+  <tr *ngFor="let indicateur of indicateurs">
+    <th>{{ indicateur.id }}</th>
+    <th>{{ indicateur.last_updated }}</th>
+    <th>{{ indicateur.status }}</th>
+    <th>{{ indicateur.typ }}</th>
+    <th>
+      <button *ngIf="indicateur.typ === 'crontask'" [routerLink]="['crontask', indicateur]" routerLinkActive="active">Plus</button>
+      <button *ngIf="indicateur.typ === 'backup'" routerLink="backup"  >Plus</button>
+    </th>
+  </tr>
+</table>
