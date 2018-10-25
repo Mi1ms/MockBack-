@@ -16,8 +16,8 @@ import { InMemoryDbService, HttpClientInMemoryWebApiModule }   from "angular-in-
 const routes: Routes = [
     { path: 'menu', redirectTo: '/', pathMatch: 'full'},
     { path: '', component: IndicateurComponent},
-    { path: 'backup', component: BackUpComponent},
-    { path: 'crontask', component: CrontaskComponent},
+    // { path: 'backup', component: BackUpComponent},
+    // { path: 'crontask', component: CrontaskComponent},
 ];
 
 @NgModule({

@@ -16,8 +16,8 @@
     >{{ indicateur.status }}</th>
     <th>{{ indicateur.typ }}</th>
     <th>
-      <button *ngIf="indicateur.typ === 'crontask'" [routerLink]="['crontask', indicateur]" routerLinkActive="active">Plus</button>
-      <button *ngIf="indicateur.typ === 'backup'" routerLink="backup"  >Plus</button>
+      <button *ngIf="indicateur.typ === 'crontask'" >Plus</button>
+      <button *ngIf="indicateur.typ === 'backup'"   >Plus</button>
     </th>
   </tr>
 </table>
