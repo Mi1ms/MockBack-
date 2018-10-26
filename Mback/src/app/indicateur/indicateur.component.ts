@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { MockbackService } from './mockback.service';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-indicateur',
@@ -9,13 +9,18 @@ import { MockbackService } from './mockback.service';
 })
 export class IndicateurComponent implements OnInit {
 
-  indicateurs: any[];
+  indicateurs: any = [];
 
-  constructor(private indicateurService: MockbackService) { }
+  constructor(private indicateurService: AppService) { }
 
   ngOnInit() {
-    // console.log(this.indicateurService.createDb().list);
-    this.indicateurs = this.indicateurService.createDb().list;
+
+    this.indicateurs = this.GetAllList();
+  }
+
+  GetAllList() {
+    return this.indicateurService.getList()//.subscribe(data => this.indicateurs
+    //);
   }
 
 }

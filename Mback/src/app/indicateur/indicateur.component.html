@@ -2,13 +2,12 @@
 
 <table class="table table-hover">
   <tr>
-    <th> Id </th>
     <th>Derniere Update</th>
     <th>Statut</th>
     <th>Type</th>
   </tr>
   <tr *ngFor="let indicateur of indicateurs">
-    <th>{{ indicateur.id }}</th>
+
     <th>{{ indicateur.last_updated }}</th>
     <th
     [ngClass]="

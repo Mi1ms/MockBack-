@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Http } from "@angular/http";
-import { MockbackService } from "./indicateur/mockback.service";
-// import "rxjs/add/operator/map";
+import { HttpClient } from "@angular/common/http";
+import  'rxjs/operators';
 
-@Injectable(/*{
-  // providedIn: 'root'
-}*/)
+@Injectable()
+
 export class AppService {
   // point route of api
-  base_url: string = "api/v1/indicators";
-  list_endpoint = "list";
-  constructor(private http: Http, mockback : MockbackService) {
-    console.log(Http);
-  }
+  base_url: string = "/api/v1/indicators";
+  list: any = [];
+    constructor(private http: HttpClient) {  }
 
   // function get
-  GetListData(){
-    return this.http.get(this.base_url + this.list_endpoint);
+  getList() {
+    console.log(this.http.get(this.base_url))
+    return this.http.get(this.base_url );
+    // .map(res => res.json());
   }
+
+
 }
