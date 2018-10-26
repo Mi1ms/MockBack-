@@ -14,13 +14,28 @@ export class IndicateurComponent implements OnInit {
   constructor(private indicateurService: AppService) { }
 
   ngOnInit() {
+    var test = this.GetAllList()
+    .subscribe(
+      data => {
+          this.indicateurs = data.v1
+          
+      },
+      error => { console.log(error);
+      });
 
-    this.indicateurs = this.GetAllList();
+      // this.indicateurs = []// this.indicateurs.vOne;
   }
 
   GetAllList() {
-    return this.indicateurService.getList()//.subscribe(data => this.indicateurs
-    //);
+    return  this.indicateurService.getList()
+    // .subscribe(
+    //   data => {
+    //       var datalist = data
+    //       return datalist;
+    //   },
+    //   error => { console.log(error);
+    //   });
+
   }
 
 }
