@@ -1,22 +1,24 @@
 <h2>Tout les indicateurs</h2>
 
-<table class="table table-hover">
-  <tr>
+<table *ngIf="!error; else ErrorBlock" class="table table-hover text-center">
+  <tr class="bg-dark text-white ">
     <th>Derniere Update</th>
     <th>Statut</th>
     <th>Type</th>
   </tr>
-  <tr *ngFor="let indicateur of indicateurs">
+
+  <tr *ngFor="let indicateur of indicateurs" >
 
     <th>{{ indicateur.last_updated }}</th>
-    <th
+    <th class="text-center text-white"
     [ngClass]="
     indicateur.status === 'danger' ? 'th-alert' : (indicateur.status === 'warning' ? 'th-warning' : 'th-success')"
     >{{ indicateur.status }}</th>
     <th>{{ indicateur.typ }}</th>
-    <th>
-      <button *ngIf="indicateur.typ === 'crontask'" >Plus</button>
-      <button *ngIf="indicateur.typ === 'backup'"   >Plus</button>
+    <th class="th-click">
+      <button *ngIf="indicateur.typ === 'crontask'" (click)="getInfo(indicateur)" class="btn btn-dark "><i class="fas fa-search-plus"></i>Plus</button>
+      <button *ngIf="indicateur.typ === 'backup'" class="btn btn-dark"  >Plus</button>
     </th>
   </tr>
 </table>
+<ng-template class="text-center text-body" #ErrorBlock>{{msgerror}}</ng-template>

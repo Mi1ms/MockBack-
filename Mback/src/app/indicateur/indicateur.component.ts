@@ -10,32 +10,37 @@ import { AppService } from '../app.service';
 export class IndicateurComponent implements OnInit {
 
   indicateurs: any = [];
+  error: boolean = false;
+  msgerror: string;
 
   constructor(private indicateurService: AppService) { }
 
   ngOnInit() {
-    var test = this.GetAllList()
-    .subscribe(
-      data => {
-          this.indicateurs = data.v1
-          
-      },
-      error => { console.log(error);
-      });
 
-      // this.indicateurs = []// this.indicateurs.vOne;
+    this.GetAllList()
+            .subscribe(
+                data => {
+                    this.indicateurs = data.v1
+                    console.log(data, data.v1);
+                    if(this.indicateurs !== {}){
+                      console.log('array');
+                    } else {
+
+                    }
+                },
+                error => {
+                  this.error = true;
+                  this.msgerror = error.message;
+                }
+            );
   }
 
   GetAllList() {
-    return  this.indicateurService.getList()
-    // .subscribe(
-    //   data => {
-    //       var datalist = data
-    //       return datalist;
-    //   },
-    //   error => { console.log(error);
-    //   });
+      return this.indicateurService.getList()
+  }
 
+  getInfo(info){
+      console.log(info);
   }
 
 }

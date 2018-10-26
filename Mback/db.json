@@ -2,9 +2,12 @@
   "api":
       {
         "v1": [
-          { "id": 1, "typ": "crontask", "last_updated": "2009", "status": "warning" },
-          { "id": 1, "typ": "crontask", "last_updated": "2009", "status": "warning" },
-          { "id": 1, "typ": "crontask", "last_updated": "2009", "status": "warning" }
+          { "typ": "crontask", "last_updated": "2009", "status": "warning" },
+          { "typ": "crontask", "last_updated": "2015", "status": "danger" },
+          { "typ": "backup", "last_updated": "2012", "status": "success" },
+          { "typ": "backup", "last_updated": "2005", "status": "warning" },
+          { "typ": "crontask", "last_updated": "2005", "status": "danger" },
+          { "typ": "backup", "last_updated": "2017", "status": "success" }
         ]
       }
 

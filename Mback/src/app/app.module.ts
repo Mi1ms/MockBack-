@@ -13,8 +13,6 @@ import { AppService }          from './app.service';
 const routes: Routes = [
     { path: 'menu', redirectTo: '/', pathMatch: 'full'},
     { path: '', component: IndicateurComponent},
-    // { path: 'backup', component: BackUpComponent},
-    // { path: 'crontask', component: CrontaskComponent},
 ];
 
 @NgModule({
@@ -30,7 +28,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
   ],
   providers: [
-    // hooking up Injection
     AppService,
   ],
   bootstrap: [AppComponent]
