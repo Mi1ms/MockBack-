@@ -20,12 +20,8 @@ export class IndicateurComponent implements OnInit {
     this.GetAllList()
             .subscribe(
                 data => {
-                    this.indicateurs = data.v1
-                    console.log(data, data.v1);
-                    if(this.indicateurs !== {}){
-                      console.log('array');
-                    } else {
-
+                    if(typeof data === 'object'){
+                      this.indicateurs = data.v1
                     }
                 },
                 error => {
