@@ -21,7 +21,7 @@ export class IndicateurComponent implements OnInit {
             .subscribe(
                 data => {
                     if(typeof data === 'object'){
-                      this.indicateurs = data.v1
+                      this.indicateurs = data
                     }
                 },
                 error => {

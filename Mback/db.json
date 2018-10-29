@@ -1,14 +1,18 @@
 {
-  "api":
-      {
-        "v1": [
-          { "typ": "crontask", "last_updated": "2009", "status": "warning" },
-          { "typ": "crontask", "last_updated": "2015", "status": "danger" },
-          { "typ": "backup", "last_updated": "2012", "status": "success" },
-          { "typ": "backup", "last_updated": "2005", "status": "warning" },
-          { "typ": "crontask", "last_updated": "2005", "status": "danger" },
-          { "typ": "backup", "last_updated": "2017", "status": "success" }
-        ]
-      }
-
+  "indicators": [
+      { "typ": "crontask", "last_updated": "2009", "status": "warning" },
+      { "typ": "crontask", "last_updated": "2015", "status": "danger" },
+      { "typ": "backup", "last_updated": "2012", "status": "success" },
+      { "typ": "backup", "last_updated": "2005", "status": "warning" },
+      { "typ": "crontask", "last_updated": "2005", "status": "danger" },
+      { "typ": "backup", "last_updated": "2017", "status": "success" }
+    ],
+    "tets": [
+      { "typ": "test", "last_updated": "2009", "status": "warning" },
+      { "typ": "test", "last_updated": "2015", "status": "danger" },
+      { "typ": "test", "last_updated": "2012", "status": "success" },
+      { "typ": "backup", "last_updated": "2005", "status": "warning" },
+      { "typ": "crontask", "last_updated": "2005", "status": "danger" },
+      { "typ": "backup", "last_updated": "2017", "status": "success" }
+    ]
 }
