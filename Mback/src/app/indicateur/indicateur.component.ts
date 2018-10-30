@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
 import { AppService } from '../app.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-indicateur',
@@ -12,8 +12,11 @@ export class IndicateurComponent implements OnInit {
   indicateurs: any = [];
   error: boolean = false;
   msgerror: string;
+  nbr: number = 0;
 
-  constructor(private indicateurService: AppService) { }
+  constructor(private indicateurService: AppService,
+              private route: ActivatedRoute,
+              private router: Router ) { }
 
   ngOnInit() {
 
@@ -21,7 +24,9 @@ export class IndicateurComponent implements OnInit {
             .subscribe(
                 data => {
                     if(typeof data === 'object'){
+
                       this.indicateurs = data
+
                     }
                 },
                 error => {
@@ -32,11 +37,18 @@ export class IndicateurComponent implements OnInit {
   }
 
   GetAllList() {
-      return this.indicateurService.getList()
+      return this.indicateurService.getList("indicators")
   }
 
   getInfo(info){
-      console.log(info);
+      if(info.typ === 'backup'){
+        this.router.navigate(['/back'], info)
+
+      } else {
+        this.router.navigate(['/cron'], info).then(
+          () => console.log(info)
+        )
+      }
   }
 
 }

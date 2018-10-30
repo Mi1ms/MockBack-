@@ -7,7 +7,7 @@
     <th>Type</th>
   </tr>
 
-  <tr *ngFor="let indicateur of indicateurs" >
+  <tr *ngFor="let indicateur of indicateurs;" >
 
     <th>{{ indicateur.last_updated }}</th>
     <th class="text-center text-white"
@@ -16,8 +16,7 @@
     >{{ indicateur.status }}</th>
     <th>{{ indicateur.typ }}</th>
     <th class="th-click">
-      <button *ngIf="indicateur.typ === 'crontask'" (click)="getInfo(indicateur)" class="btn btn-dark "><i class="fas fa-search-plus"></i>Plus</button>
-      <button *ngIf="indicateur.typ === 'backup'" class="btn btn-dark"  >Plus</button>
+      <button (click)="getInfo(indicateur)" class="btn btn-dark "><i class="fas fa-search-plus"></i>Plus</button>
     </th>
   </tr>
 </table>
