@@ -2,14 +2,15 @@
 
 <table *ngIf="!error; else ErrorBlock" class="table table-hover text-center">
   <tr class="bg-dark text-white ">
-    <th>Derniere Update</th>
+    <th>ID</th>
     <th>Statut</th>
     <th>Type</th>
   </tr>
 
-  <tr *ngFor="let indicateur of indicateurs;" >
+  <tr *ngFor="let indicateur of indicateurs;"
+  [ngClass]="indicateur.forced ? 'forced' : ''" >
 
-    <th>{{ indicateur.last_updated }}</th>
+    <th>{{ indicateur.id }}</th>
     <th class="text-center text-white"
     [ngClass]="
     indicateur.status === 'danger' ? 'th-alert' : (indicateur.status === 'warning' ? 'th-warning' : 'th-success')"

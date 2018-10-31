@@ -1,9 +1,29 @@
 <div class="card" *ngFor="let client of groups;">
-  <div class="card-header bg-dark text-light text-center"><h2>{{ client.name }}</h2></div>
+  <div class="card-header bg-dark text-light text-center">
+    <h2>{{ client.name }}</h2>
+  </div>
   <div class="card-body">
     <h2>Total : {{ client.sum }}</h2>
+    <p>
+    {{ client.allsuccess / client.sum * 100}}
+    {{ client.allwarning / client.sum * 100 }}
+    {{ client.alldanger / client.sum * 100 }}</p>
+    <div class="progress">
+       <div *ngIf="client.allsuccess > 0" class="progress-bar bg-success"
+         ng-style="{'width' : ' client.allsuccess / client.sum * 100 % '}"
+         >
+         Success
+       </div>
+       <div *ngIf="client.allwarning > 0" class="progress-bar bg-warning" style="width: {{ client.allwarning / client.sum * 100 }}%">
+         Warning
+       </div>
+       <div *ngIf="client.alldanger > 0" class="progress-bar bg-alert" style="width: {{ client.alldanger / client.sum * 100 }}%">
+         Danger
+       </div>
+    </div>
     <span class="badge badge-info"><h5>Success :<b> {{ client.allsuccess }} </b></h5></span>
     <span class="badge badge-warning"><h5>Warning :<b> {{ client.allwarning }} </b></h5></span>
     <span class="badge badge-dark"><h5>Danger :<b> {{ client.alldanger }} </b></h5></span>
+    <button class="btn btn-light" [routerLink]="[ client.id, 'indicators']">Voir les indicateurs</button>
   </div>
 </div>

@@ -14,6 +14,7 @@ import { GroupsComponent }     from './groups/groups.component';
 const routes: Routes = [
     { path: 'index', redirectTo: '/', pathMatch: 'full'},
     { path: '', component: GroupsComponent},
+    { path: ':id/indicators', component: IndicateurComponent, pathMatch: 'full'},
     { path: 'cron', component: CrontaskComponent},
     { path: 'back', component: BackUpComponent},
 

@@ -60,7 +60,7 @@ export class GroupsComponent implements OnInit {
           sum++
       }
     }
-    let total = success/sum * 100
-    return {"success": success, "warning": warning, "danger": danger, "global": total}
+    return {"success": success, "warning": warning, "danger": danger, "global": sum}
   }
+
 }

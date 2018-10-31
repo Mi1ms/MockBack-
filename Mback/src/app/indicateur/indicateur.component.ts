@@ -15,40 +15,19 @@ export class IndicateurComponent implements OnInit {
   nbr: number = 0;
 
   constructor(private indicateurService: AppService,
-              private route: ActivatedRoute,
-              private router: Router ) { }
+              private route: ActivatedRoute
+             ) { }
 
   ngOnInit() {
-
-    this.GetAllList()
-            .subscribe(
-                data => {
-                    if(typeof data === 'object'){
-
-                      this.indicateurs = data
-
-                    }
-                },
-                error => {
-                  this.error = true;
-                  this.msgerror = error.message;
-                }
-            );
+    const id = this.route.snapshot.paramMap.get('id');
+    this.indicateurService.getList("groups/"+id+"/indicators")
+        .subscribe((indic) => {
+          this.indicateurs = indic
+        })
   }
 
-  GetAllList() {
-      return this.indicateurService.getList("indicators")
-  }
+  getInfo(info): void {
 
-  getInfo(info){
-      if(info.typ === 'backup'){
-        this.router.navigate(['/back'], info)
-
-      } else {
-        this.router.navigate(['/cron'], info).then(
-          () => console.log(info)
-        )
-      }
   }
 
 }

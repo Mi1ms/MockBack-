@@ -22,3 +22,6 @@
 .th-click{
   padding: 0!important;
 }
+.forced, .forced:hover{
+  background: #b3b3b3!important;
+}
