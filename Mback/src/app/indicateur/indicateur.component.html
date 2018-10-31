@@ -2,7 +2,6 @@
 
 <table *ngIf="!error; else ErrorBlock" class="table table-hover text-center">
   <tr class="bg-dark text-white ">
-    <th>ID</th>
     <th>Statut</th>
     <th>Type</th>
   </tr>
@@ -10,14 +9,13 @@
   <tr *ngFor="let indicateur of indicateurs;"
   [ngClass]="indicateur.forced ? 'forced' : ''" >
 
-    <th>{{ indicateur.id }}</th>
     <th class="text-center text-white"
     [ngClass]="
     indicateur.status === 'danger' ? 'th-alert' : (indicateur.status === 'warning' ? 'th-warning' : 'th-success')"
     >{{ indicateur.status }}</th>
     <th>{{ indicateur.typ }}</th>
-    <th class="th-click">
-      <button (click)="getInfo(indicateur)" class="btn btn-dark "><i class="fas fa-search-plus"></i>Plus</button>
+    <th class="th-click col-2">
+      <button (click)="getInfo(id, indicateur)" class=" btn btn-dark "><i class="fas fa-search-plus"></i>Plus</button>
     </th>
   </tr>
 </table>

@@ -10,23 +10,23 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class IndicateurComponent implements OnInit {
 
   indicateurs: any = [];
-  error: boolean = false;
-  msgerror: string;
-  nbr: number = 0;
+  id;
 
   constructor(private indicateurService: AppService,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private router: Router
              ) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.indicateurService.getList("groups/"+id+"/indicators")
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.indicateurService.getList("groups/"+this.id+"/indicators")
         .subscribe((indic) => {
           this.indicateurs = indic
         })
   }
 
-  getInfo(info): void {
+  getInfo(id, obj) {
+        this.router.navigate([id, 'indicators', obj.id ]);
 
   }
 

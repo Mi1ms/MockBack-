@@ -5,18 +5,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent }        from './app.component';
 import { IndicateurComponent } from './indicateur/indicateur.component';
-import { BackUpComponent }     from './indicateur/back-up/back-up.component';
-import { CrontaskComponent }   from './indicateur/crontask/crontask.component';
 
 import { AppService }          from './app.service';
 import { GroupsComponent }     from './groups/groups.component';
+import { DetailsComponent } from './indicateur/details/details.component';
 
 const routes: Routes = [
     { path: 'index', redirectTo: '/', pathMatch: 'full'},
     { path: '', component: GroupsComponent},
     { path: ':id/indicators', component: IndicateurComponent, pathMatch: 'full'},
-    { path: 'cron', component: CrontaskComponent},
-    { path: 'back', component: BackUpComponent},
+    { path: ':id/indicators/:typ', component: DetailsComponent, pathMatch: 'full'}
 
 ];
 
@@ -24,9 +22,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     IndicateurComponent,
-    BackUpComponent,
-    CrontaskComponent,
     GroupsComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
