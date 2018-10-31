@@ -1,4 +1,9 @@
 <div class="card" *ngFor="let client of groups;">
-  <div class="card-header bg-dark color-light">{{ client.name }}</div>
-  <div class="card-body">Basic card</div>
+  <div class="card-header bg-dark text-light text-center"><h2>{{ client.name }}</h2></div>
+  <div class="card-body">
+    <h2>Total : {{ client.sum }}</h2>
+    <span class="badge badge-info"><h5>Success :<b> {{ client.allsuccess }} </b></h5></span>
+    <span class="badge badge-warning"><h5>Warning :<b> {{ client.allwarning }} </b></h5></span>
+    <span class="badge badge-dark"><h5>Danger :<b> {{ client.alldanger }} </b></h5></span>
+  </div>
 </div>

@@ -8,15 +8,59 @@ import { AppService } from '../app.service';
 })
 export class GroupsComponent implements OnInit {
   groups: any;
+  object = Object.keys;
 
   constructor(private service: AppService) { }
 
   ngOnInit() {
-    this.service.getList("groups")
-    .subscribe((data) => this.groups = data
+    this.service.getList("groups").subscribe( (data) =>
+      this.GetIndicators(data)
     );
-    // this.groups.forEach()
-    // this.service.getList("groups/"+x+"/indicators")
   }
 
+  GetIndicators(response){
+      this.groups = response;
+
+      for ( let client of response ) {
+        let search = "groups/"+client.id+"/indicators";
+        let x = client.id-1;
+        this.service.getList(search)
+          .subscribe(
+            (info) => {
+              let calcul = this.getSum(info)
+
+              this.groups[x].sum = calcul.global
+              this.groups[x].allsuccess = calcul.success
+              this.groups[x].allwarning = calcul.warning
+              this.groups[x].alldanger = calcul.danger
+          })
+
+      }
+  }
+
+  getSum( obj ) {
+    let success = 0;
+    let warning = 0;
+    let danger = 0;
+    let sum = 0;
+
+    for( let indicators of obj ) {
+      if(!indicators.forced){
+          switch (indicators.status) {
+            case "success":
+              success++;
+              break;
+            case "warning":
+              warning++;
+              break;
+            case "danger":
+              danger++;
+              break;
+          }
+          sum++
+      }
+    }
+    let total = success/sum * 100
+    return {"success": success, "warning": warning, "danger": danger, "global": total}
+  }
 }
