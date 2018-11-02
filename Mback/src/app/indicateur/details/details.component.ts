@@ -27,7 +27,6 @@ export class DetailsComponent implements OnInit {
           })
   }
   ForcedIndicator(data){
-    console.log(data)
     data.forced = !data.forced
     this.info.updateData("indicators/"+data.id, data)
   }

@@ -3,27 +3,27 @@
     <h2>{{ client.name }}</h2>
   </div>
   <div class="card-body">
-    <h2>Total : {{ client.sum }}</h2>
-    <p>
-    {{ client.allsuccess / client.sum * 100}}
-    {{ client.allwarning / client.sum * 100 }}
-    {{ client.alldanger / client.sum * 100 }}</p>
+      <h2 class="card-title text-center">Total indicateurs: {{ client.sum }}</h2>
+
+      <span class="bdg-ind badge badge-info"><h5>Success :<b> {{ client.allsuccess }} </b></h5></span>
+      <span class="bdg-ind badge badge-warning"><h5>Warning :<b> {{ client.allwarning }} </b></h5></span>
+      <span class="bdg-ind badge badge-dark"><h5>Danger :<b> {{ client.alldanger }} </b></h5></span>
+    <!-- </div> -->
     <div class="progress">
        <div *ngIf="client.allsuccess > 0" class="progress-bar bg-success"
-         ng-style="{'width' : ' client.allsuccess / client.sum * 100 % '}"
+         [ngStyle]="{'width' : getPercent(client.allsuccess, client.sum) }"
          >
          Success
        </div>
-       <div *ngIf="client.allwarning > 0" class="progress-bar bg-warning" style="width: {{ client.allwarning / client.sum * 100 }}%">
+       <div *ngIf="client.allwarning > 0" class="progress-bar bg-warning"
+         [ngStyle]="{'width' : getPercent(client.allwarning, client.sum)}">
          Warning
        </div>
-       <div *ngIf="client.alldanger > 0" class="progress-bar bg-alert" style="width: {{ client.alldanger / client.sum * 100 }}%">
+       <div *ngIf="client.alldanger > 0" class="progress-bar bg-alert"
+         [ngStyle]="{'width' : getPercent(client.alldanger, client.sum)}">
          Danger
        </div>
     </div>
-    <span class="badge badge-info"><h5>Success :<b> {{ client.allsuccess }} </b></h5></span>
-    <span class="badge badge-warning"><h5>Warning :<b> {{ client.allwarning }} </b></h5></span>
-    <span class="badge badge-dark"><h5>Danger :<b> {{ client.alldanger }} </b></h5></span>
-    <button class="btn btn-light" [routerLink]="[ client.id, 'indicators']">Voir les indicateurs</button>
+    <button class="btn btn-light btn-block" [routerLink]="[ client.id, 'indicators']">Voir les indicateurs</button>
   </div>
 </div>

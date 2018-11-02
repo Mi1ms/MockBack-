@@ -63,4 +63,9 @@ export class GroupsComponent implements OnInit {
     return {"success": success, "warning": warning, "danger": danger, "global": sum}
   }
 
+  getPercent(portion, sum) {
+    let calcul = portion/sum * 100;
+    return calcul+"%"
+  }
+
 }
