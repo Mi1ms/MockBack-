@@ -38,7 +38,7 @@
       "typ": "crontask",
       "status": "danger",
       "groupId": 1,
-      "forced": true
+      "forced": false
     },
     {
       "id": 6,
