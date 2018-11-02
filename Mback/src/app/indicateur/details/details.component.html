@@ -5,7 +5,7 @@
       {{ !details.forced}}
       <div class="onoffswitch">
         <input type="checkbox" name="forced" class="onoffswitch-checkbox" id="myonoffswitch"
-        [checked]="!details.forced">
+        [checked]="!details.forced" (click)="ForcedIndicator(details)">
         <label class="onoffswitch-label" for="myonoffswitch">
           <span class="onoffswitch-inner"></span>
           <span class="onoffswitch-switch"></span>

@@ -12,5 +12,16 @@ export class AppService {
     return this.http.get(this.base_url + get)
   }
 
+  updateData(url, data){
+    return this.http.put(this.base_url+url, data)
+                    .subscribe(
+                        db => {
+                        console.log(db)
+                      }, error => {
+                        console.log(error)
+                      }
+                    )
+  }
+
 
 }
