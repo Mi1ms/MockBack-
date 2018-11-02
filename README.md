@@ -1,24 +1,25 @@
-# MockBack
+# Verification of Machine
 
-**verification of status machine,list with status** 
+**List of status machine** 
 Developement Front, with fake-backend. Use Angular v6.0 and Json-server
 
 
 ## Prerequisite
 
-notions Angular 
-
+*notions Angular 
+*TypeScript
 
 ## Install
 
-*Json-server for the fake-Back you can see more here : https://github.com/typicode/json-server
+Json-server for the fake-Back you can see more [on official doc](https://github.com/typicode/json-server)
 ```
         npm install -g json-server
 ```
-        
+   
+## For BackEnd Part   
 *Create file db.json with data && Start Json Server
 ```
-// db.json
+        // db.json
 {
   "indicators": [
     {
@@ -37,4 +38,15 @@ notions Angular
     }
   ]
 }
+```
+*This command run Json Server : watch file db.json 
+```
+        json-server --watch db.json --routes node_modules/json-server/routes.json 
+
+```
+## Run Angular project 
+Just Run in the directory
+```
+        // open automatically project on browser
+        ng serve --open
 ```
