@@ -29,6 +29,7 @@ export class GroupsComponent implements OnInit {
             (info) => {
               let calcul = this.getSum(info)
 
+              this.groups[x].total = info.length
               this.groups[x].sum = calcul.global
               this.groups[x].allsuccess = calcul.success
               this.groups[x].allwarning = calcul.warning

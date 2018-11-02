@@ -3,12 +3,11 @@
     <h2>{{ client.name }}</h2>
   </div>
   <div class="card-body">
-      <h2 class="card-title text-center">Total indicateurs: {{ client.sum }}</h2>
+      <h2 class="card-title text-center">Indicateurs: {{ client.sum }} <i>(sur {{client.total}})</i></h2>
 
       <span class="bdg-ind badge badge-info"><h5>Success :<b> {{ client.allsuccess }} </b></h5></span>
       <span class="bdg-ind badge badge-warning"><h5>Warning :<b> {{ client.allwarning }} </b></h5></span>
       <span class="bdg-ind badge badge-dark"><h5>Danger :<b> {{ client.alldanger }} </b></h5></span>
-    <!-- </div> -->
     <div class="progress">
        <div *ngIf="client.allsuccess > 0" class="progress-bar bg-success"
          [ngStyle]="{'width' : getPercent(client.allsuccess, client.sum) }"
