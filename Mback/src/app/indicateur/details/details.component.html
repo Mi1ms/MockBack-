@@ -1,7 +1,17 @@
 <table class="table">
   <tr>
-    <th class="bg-dark text-white "> ID </th>
-    <th >{{ details.id }}</th>
+    <th class="bg-dark text-white "> blocker </th>
+    <th >
+      {{ !details.forced}}
+      <div class="onoffswitch">
+        <input type="checkbox" name="forced" class="onoffswitch-checkbox" id="myonoffswitch"
+        [checked]="!details.forced">
+        <label class="onoffswitch-label" for="myonoffswitch">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+        </label>
+      </div>
+    </th>
   </tr>
   <tr>
     <th class="bg-dark text-white"> Client </th>
@@ -19,3 +29,4 @@
     <th class="bg-dark text-white"> Label </th>
     <th>{{ details.label }}</th>
   </tr>
+</table>
