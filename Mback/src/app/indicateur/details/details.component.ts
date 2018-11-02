@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AppService } from '/src/app/app.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { AppService } from '../../app.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
+  details: any = [];
+  name: any = [];
 
   constructor(private route: ActivatedRoute,
               private info: AppService
@@ -15,15 +17,14 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
 
-      let id = this.route.snapshot.paramMap.get('id');
-      let typ = this.route.snapshot.paramMap.get('typ');
-      console.log(id, typ)
-      this.info.getList("groups/"+id+"/indicators"+typ)
+      let typ = this.route.snapshot.paramMap.get('typ')
+
+      this.info.getList("indicators/"+typ)
           .subscribe((indic) => {
-            console.log(indic)
-      //       this.indicateurs = indic
+            this.details = indic
+            this.info.getList("groups/"+this.details.groupId)
+                .subscribe((client) =>  this.name = client)
           })
-      console.log(this.info);
   }
 
 }
