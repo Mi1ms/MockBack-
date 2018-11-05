@@ -6,7 +6,8 @@
       "typ": "backup",
       "status": "danger",
       "groupId": 1,
-      "forced": false
+      "forced": false,
+      "details": "Error 234/ danger"
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "typ": "backup",
       "status": "warning",
       "groupId": 1,
-      "forced": false
+      "forced": true,
+      "details": "Error 0420/ warning"
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "typ": "backup",
       "status": "warning",
       "groupId": 1,
-      "forced": true
+      "forced": false,
+      "details": "Error 324: warning"
     },
     {
       "id": 4,
@@ -30,7 +33,8 @@
       "typ": "backup",
       "status": "success",
       "groupId": 1,
-      "forced": false
+      "forced": false,
+      "details": "No Error  "
     },
     {
       "id": 5,
@@ -38,7 +42,8 @@
       "typ": "crontask",
       "status": "danger",
       "groupId": 1,
-      "forced": false
+      "forced": true,
+      "details": "Danger zone Error  "
     },
     {
       "id": 6,
@@ -46,7 +51,8 @@
       "typ": "crontask",
       "status": "danger",
       "groupId": 2,
-      "forced": false
+      "forced": false,
+      "details": "danger Error "
     },
     {
       "id": 7,
@@ -54,7 +60,8 @@
       "typ": "backup",
       "status": "success",
       "groupId": 3,
-      "forced": false
+      "forced": false,
+      "details": "No Error  "
     }
   ],
   "groups": [

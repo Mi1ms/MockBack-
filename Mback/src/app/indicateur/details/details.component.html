@@ -1,8 +1,12 @@
+<div *ngIf="details.status !== 'success'" class=" alert alert-{{ details.status }} fade show" >
+  <h4 class="alert-heading">Check :</h4>
+  <p>{{ details.details}}</p>
+</div>
+
 <table class="table">
   <tr>
     <th class="bg-dark text-white "> blocker </th>
     <th >
-      {{ !details.forced}}
       <div class="onoffswitch">
         <input type="checkbox" name="forced" class="onoffswitch-checkbox" id="myonoffswitch"
         [checked]="!details.forced" (click)="ForcedIndicator(details)">

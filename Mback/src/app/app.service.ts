@@ -16,7 +16,7 @@ export class AppService {
     return this.http.put(this.base_url+url, data)
                     .subscribe(
                         db => {
-                        console.log(db)
+                        db = data
                       }, error => {
                         console.log(error)
                       }
