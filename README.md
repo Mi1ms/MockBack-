@@ -6,20 +6,25 @@ Developement Front, with fake-backend. Use Angular v6.0 and Json-server
 
 ## Prerequisite
 
-*notions Angular 
-*TypeScript
+Angular version 6
+
 
 ## Install
+1. ### For Angular 
+You need install module 
+	
+```
+	npm install --save-dev @angular-devkit/build-angular
+```
 
-Json-server for the fake-Back you can see more [on official doc](https://github.com/typicode/json-server)
+2. ### For Json Server    
+	Json-server for the fake-Back you can see more on [official doc](https://github.com/typicode/json-server)
 ```
-        npm install -g json-server
+	npm install -g json-server
 ```
-   
-## For BackEnd Part   
 *Create file db.json with data && Start Json Server
 ```
-        // db.json
+	// db.json
 {
   "indicators": [
     {
@@ -41,7 +46,7 @@ Json-server for the fake-Back you can see more [on official doc](https://github.
 ```
 *This command run Json Server : watch file db.json 
 ```
-        json-server --watch db.json --routes node_modules/json-server/routes.json 
+	json-server --watch db.json --routes node_modules/json-server/routes.json 
 
 ```
 ## Run Angular project 
