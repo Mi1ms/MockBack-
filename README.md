@@ -1,8 +1,8 @@
 # Verification of Machine  :white_check_mark:
-
+ 
 **List of status machine** 
 Developement Front, with fake-backend. Use Angular v6.0 and Json-server. Make with love ~~and some tears~~
-
+> Beginner, forgive my english :grimacing:
 
 ## Prerequisite
 
