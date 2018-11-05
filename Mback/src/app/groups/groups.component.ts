@@ -29,7 +29,7 @@ export class GroupsComponent implements OnInit {
             (info) => {
               let calcul = this.getSum(info)
 
-              this.groups[x].total = info.length
+              this.groups[x].total = calcul.length
               this.groups[x].sum = calcul.global
               this.groups[x].allsuccess = calcul.success
               this.groups[x].allwarning = calcul.warning
@@ -61,7 +61,8 @@ export class GroupsComponent implements OnInit {
           sum++
       }
     }
-    return {"success": success, "warning": warning, "danger": danger, "global": sum}
+
+    return {"success": success, "warning": warning, "danger": danger, "global": sum, "length": obj.length}
   }
 
   getPercent(portion, sum) {
