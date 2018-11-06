@@ -1,11 +1,13 @@
 var casual = require('casual');
+var path = require('path');
+console.log(path.dirname('db.json'))
 
 var db = {
   indicators: [],
   groups:[]
 };
 
-for (let i = 5; i < 7; i++) {
+for (let i = 5; i < 6; i++) {
   let group = {};
   // random name
   group.id = i;
@@ -16,9 +18,8 @@ for (let i = 5; i < 7; i++) {
     indicator.id = 20 + a
     indicator.label = casual.words(casual.integer(1, 4))
     indicator.typ = casual.integer(1, 2) == 1 ? 'crontask' : 'backup'
-    indicator.status = casual.integer(1, 3) == 1 ? "success" : (casual.integer(2, 3) == 2 ? "warning" : "danger") 
+    indicator.status = casual.integer(1, 3) == 1 ? "success" : (casual.integer(2, 3) == 2 ? "warning" : "danger")
     indicator.details = 'error ?'
-    // var status = casual.integer(1, 3)
     indicator.forced = casual.integer(1, 2) == 1 ? true : false
     indicator.groupId = group.id
 
