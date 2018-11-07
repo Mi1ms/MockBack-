@@ -2,8 +2,8 @@ dist: trusty
 sudo: false
 
 language: node_js
-rvm:
-  - 10.12
+node_js:
+  - "10.12"
 
 addons:
   apt:
