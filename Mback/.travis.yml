@@ -1,24 +1,16 @@
-dist: trusty
-sudo: false
-
 language: node_js
 node_js:
-  - "10.12"
-
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
-
-cache:
-  directories:
-     - ./node_modules
-
-install:
-  - npm install
-
-script:
-  - npm run test -- --single-run --no-progress --browser=ChromeHeadlessCI
-  - npm run e2e -- --no-progress --config=protractor-ci.conf.js
+- '10'
+before_install:
+- npm install -g @angular/cli
+install: npm install
+branches:
+  only:
+  - master
+after_script:
+- chmod +x publish-gh-pages.sh && ./publish-gh-pages.sh
+deploy:
+  provider: heroku
+  api_key:
+    secure: generate your's using travis cli
+  app: angular-cd-demo
