@@ -2,8 +2,8 @@ dist: trusty
 sudo: false
 
 language: node_js
-node_js:
-  - "8"
+rvm:
+  - 10.12
 
 addons:
   apt:
