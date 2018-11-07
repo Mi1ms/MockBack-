@@ -22,6 +22,3 @@ install:
 script:
   - npm run test -- --single-run --no-progress --browser=ChromeHeadlessCI
   - npm run e2e -- --no-progress --config=protractor-ci.conf.js
-
-before_install:
-  - export PATH=Mback/node_modules/.bin:$PATH
