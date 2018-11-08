@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AppService } from '../app.service';
+import { Observable, of, from, interval } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-groups',
@@ -9,14 +12,25 @@ import { AppService } from '../app.service';
 export class GroupsComponent implements OnInit {
   groups: any;
   object = Object.keys;
+  data$: Observable<any>;
 
-  constructor(private service: AppService) { }
+  constructor(private service: AppService) {
+    // setInterval( (here) => {
+    //   console.log(here)
+    // }, 2000)
+  }
 
   ngOnInit() {
+    this.data$ = interval(2000)
+    console.log(this.data$)
+
     this.service.getList("groups")
         .subscribe( (data) => {
-          // console.log(data)
-          this.GetIndicators(data)
+          // setInterval(() =>{
+            console.log('look')
+            this.GetIndicators(data)
+          // }, 1000)
+
         }
     );
   }
@@ -31,7 +45,7 @@ export class GroupsComponent implements OnInit {
           .subscribe(
             (info) => {
               let calcul = this.getSum(info)
-              console.log(calcul);
+              // console.log(calcul);
 
               this.groups[x].total = calcul.length
               this.groups[x].sum = calcul.global

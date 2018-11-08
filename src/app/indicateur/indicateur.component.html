@@ -1,6 +1,6 @@
 <h2>Tout les indicateurs</h2>
 
-<table *ngIf="!error; else ErrorBlock" class="table table-hover text-center">
+<table *ngIf="!error; else ErrorBlock" class=" table table-hover text-center">
   <tr class="bg-dark text-white ">
     <th>Statut</th>
     <th>Type</th>
@@ -9,12 +9,12 @@
   <tr *ngFor="let indicateur of indicateurs;"
   [ngClass]="indicateur.forced ? 'forced' : ''" >
 
-    <th class="text-center text-white"
+    <th class="text-center text-white col"
     [ngClass]="
     indicateur.status === 'danger' ? 'th-alert' : (indicateur.status === 'warning' ? 'th-warning' : 'th-success')"
     >{{ indicateur.status }}</th>
-    <th>{{ indicateur.typ }}</th>
-    <th class="th-click col-2">
+    <th class="col">{{ indicateur.typ }}</th>
+    <th class="th-click col-6">
       <button (click)="getInfo(id, indicateur)"  class=" btn btn-dark "><i class="fas fa-search-plus"></i>Plus</button>
     </th>
   </tr>

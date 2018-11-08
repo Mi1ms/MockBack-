@@ -90,25 +90,5 @@
       "id": 4,
       "name": "The India"
     }
-  ],
-  "hist": [
-    {
-      "4324": [
-        {
-          "date":,
-          "eventtype": "ping",
-          "content": {"status": "success"}
-        },
-        {
-          "date":,
-          "eventtype": "user",
-          "content": {
-            "acknowledgement": "username"
-          }
-        }
-
-      ]
-
-    }
   ]
 }
