@@ -24,7 +24,7 @@
       "typ": "backup",
       "status": "warning",
       "groupId": 1,
-      "forced": false,
+      "forced": true,
       "details": "Error 324: warning"
     },
     {
@@ -62,6 +62,15 @@
       "groupId": 3,
       "forced": false,
       "details": "No Error  "
+    },
+    {
+      "id": 1456,
+      "label": "Sauvegarde doc",
+      "typ": "backup",
+      "status": "success",
+      "groupId": 1,
+      "forced": false,
+      "details": "Error 234/ danger"
     }
   ],
   "groups": [
@@ -80,6 +89,26 @@
     {
       "id": 4,
       "name": "The India"
+    }
+  ],
+  "hist": [
+    {
+      "4324": [
+        {
+          "date":,
+          "eventtype": "ping",
+          "content": {"status": "success"}
+        },
+        {
+          "date":,
+          "eventtype": "user",
+          "content": {
+            "acknowledgement": "username"
+          }
+        }
+
+      ]
+
     }
   ]
 }

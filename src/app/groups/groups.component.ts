@@ -13,8 +13,11 @@ export class GroupsComponent implements OnInit {
   constructor(private service: AppService) { }
 
   ngOnInit() {
-    this.service.getList("groups").subscribe( (data) =>
-      this.GetIndicators(data)
+    this.service.getList("groups")
+        .subscribe( (data) => {
+          // console.log(data)
+          this.GetIndicators(data)
+        }
     );
   }
 
@@ -28,12 +31,16 @@ export class GroupsComponent implements OnInit {
           .subscribe(
             (info) => {
               let calcul = this.getSum(info)
+              console.log(calcul);
 
               this.groups[x].total = calcul.length
               this.groups[x].sum = calcul.global
               this.groups[x].allsuccess = calcul.success
+              this.groups[x].sumsuccess = calcul.sumsuccess
               this.groups[x].allwarning = calcul.warning
+              this.groups[x].sumwarning = calcul.sumwarning
               this.groups[x].alldanger = calcul.danger
+              this.groups[x].sumdanger = calcul.sumdanger
           })
 
       }
@@ -41,8 +48,11 @@ export class GroupsComponent implements OnInit {
 
   getSum( obj ) {
     let success = 0;
+    let forcedsuccess = 0;
     let warning = 0;
+    let forcedwarning = 0;
     let danger = 0;
+    let forcedanger = 0;
     let sum = 0;
 
     for( let indicators of obj ) {
@@ -59,10 +69,31 @@ export class GroupsComponent implements OnInit {
               break;
           }
           sum++
+      } else {
+        switch (indicators.status) {
+          case "success":
+            forcedsuccess++;
+            break;
+          case "warning":
+            forcedwarning++;
+            break;
+          case "danger":
+            forcedanger++;
+            break;
+        }
       }
     }
 
-    return {"success": success, "warning": warning, "danger": danger, "global": sum, "length": obj.length}
+    return {
+      "success": success,
+      "sumsuccess": success+forcedsuccess,
+      "warning": warning,
+      "sumwarning": warning+forcedwarning,
+      "danger": danger,
+      "sumdanger": danger+forcedanger,
+      "global": sum,
+      "length": obj.length
+    }
   }
 
   getPercent(portion, sum) {

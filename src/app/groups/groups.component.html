@@ -5,22 +5,22 @@
   <div class="card-body">
       <h2 class="card-title text-center">Indicateurs: {{ client.sum }} <i>(sur {{client.total}})</i></h2>
 
-      <span class="bdg-ind badge badge-info"><h5>Success :<b> {{ client.allsuccess }} </b></h5></span>
-      <span class="bdg-ind badge badge-warning"><h5>Warning :<b> {{ client.allwarning }} </b></h5></span>
-      <span class="bdg-ind badge badge-dark"><h5>Danger :<b> {{ client.alldanger }} </b></h5></span>
+      <span class="bdg-ind badge badge-info"><h5>Success :<b> {{ client.sumsuccess }} </b></h5></span>
+      <span class="bdg-ind badge badge-warning"><h5>Warning :<b> {{ client.sumwarning }} </b></h5></span>
+      <span class="bdg-ind badge badge-dark"><h5>Danger :<b> {{ client.sumdanger }} </b></h5></span>
     <div class="progress">
        <div *ngIf="client.allsuccess > 0" class="progress-bar bg-success"
          [ngStyle]="{'width' : getPercent(client.allsuccess, client.sum) }"
          >
-         Success
+         Success ( {{ client.allsuccess }} pris en compte)
        </div>
        <div *ngIf="client.allwarning > 0" class="progress-bar bg-warning"
          [ngStyle]="{'width' : getPercent(client.allwarning, client.sum)}">
-         Warning
+         Warning ( {{ client.allwarning }} pris en compte)
        </div>
        <div *ngIf="client.alldanger > 0" class="progress-bar bg-alert"
          [ngStyle]="{'width' : getPercent(client.alldanger, client.sum)}">
-         Danger
+         Danger ( {{ client.alldanger }} pris en compte)
        </div>
     </div>
     <button class="btn btn-outline-dark btn-block" [routerLink]="[ client.id, 'indicators']">Voir les indicateurs</button>

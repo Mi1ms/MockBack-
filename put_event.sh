@@ -7,4 +7,4 @@ curl -X PUT -H "Content-Type: application/json" -d '{
   "groupId": 1,
   "forced": false,
   "details": "Error 234/ danger"
-}' "http://localhost:3000/indicators"
+}' "http://localhost:3000/indicators/1456"
