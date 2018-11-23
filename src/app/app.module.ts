@@ -28,6 +28,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
   ],
   providers: [

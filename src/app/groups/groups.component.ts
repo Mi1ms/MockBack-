@@ -15,24 +15,20 @@ export class GroupsComponent implements OnInit {
   data$: Observable<any>;
 
   constructor(private service: AppService) {
-    // setInterval( (here) => {
-    //   console.log(here)
-    // }, 2000)
   }
 
   ngOnInit() {
     this.data$ = interval(2000)
-    console.log(this.data$)
 
-    this.service.getList("groups")
-        .subscribe( (data) => {
-          // setInterval(() =>{
-            console.log('look')
-            this.GetIndicators(data)
-          // }, 1000)
-
-        }
-    );
+    // this.service.getList("groups")
+    //     .subscribe( (data) => {
+    //
+    //         console.log('look')
+    //         this.GetIndicators(data)
+    //
+    //
+    //     }
+    // );
   }
 
   GetIndicators(response){
