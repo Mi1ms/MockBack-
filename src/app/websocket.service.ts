@@ -1,39 +1,22 @@
 import { Injectable } from '@angular/core';
 import * as Rx from 'rxjs';
+import { Socket } from 'ngx-socket-io';
 import * as socketIo from 'socket.io-client';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebsocketService {
-  url: string = 'http://localhost:2400';
-  private sub: Rx.Subject<MessageEvent>;
-  private socket: SocketIOClient.Socket;
+  // url: string = 'http://localhost:2400';
 
-  constructor() { }
+  constructor(private socket: Socket) {
+    console.log(this.socket)
+   }
 
-    public initSocket(): void {
-        this.socket = socketIo(this.url);
-    }
+  public getSocket() {
+      return this.socket
 
-    public send(message: Rx.Message): void {
-        this.socket.emit('message', message);
-    }
-
-    public onEvent(event: Event): Rx.Observable<any> {
-        return new Rx.Observable<Event>(observer => {
-            this.socket.on(event, () => observer.next());
-        });
-    }
-  // public connect(url) {
-  //     this.socket = socketIo(url)
-  //     console.log(url, this.socket)
-  //   // if(!this.sub) {
-  //   //     this.sub = this.create(this.url)
-  //   // }
-  //   // return this.sub;
-  //
-  // }
+  }
 
   // // private create(url)/*: Rx.Subject<Event>*/ {
   //

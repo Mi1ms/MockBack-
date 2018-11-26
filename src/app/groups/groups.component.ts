@@ -17,21 +17,9 @@ export class GroupsComponent implements OnInit {
   constructor(private service: AppService) {
   }
 
-  ngOnInit() {
-    this.data$ = interval(2000)
+  ngOnInit() {  }
 
-    // this.service.getList("groups")
-    //     .subscribe( (data) => {
-    //
-    //         console.log('look')
-    //         this.GetIndicators(data)
-    //
-    //
-    //     }
-    // );
-  }
-
-  GetIndicators(response){
+  GetIndicators(response)/*: Observable<Groups[]>*/{
       this.groups = response;
 
       for ( let client of response ) {

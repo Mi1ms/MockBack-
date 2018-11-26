@@ -3,6 +3,8 @@ import { NgModule }             from '@angular/core';
 import { HttpClientModule }     from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
 import { AppComponent }        from './app.component';
 import { IndicateurComponent } from './indicateur/indicateur.component';
 
@@ -17,6 +19,8 @@ const routes: Routes = [
     { path: ':id/indicators/:typ', component: DetailsComponent, pathMatch: 'full'}
 
 ];
+const config : SocketIoConfig = { url: 'http://localhost:2400', options: {} };
+
 
 @NgModule({
   declarations: [
@@ -30,6 +34,7 @@ const routes: Routes = [
     HttpClientModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    SocketIoModule.forRoot(config)
   ],
   providers: [
     AppService,
