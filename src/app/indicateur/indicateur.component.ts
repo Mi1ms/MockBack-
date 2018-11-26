@@ -19,10 +19,10 @@ export class IndicateurComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    // this.indicateurService.getList("groups/"+this.id+"/indicators")
-    //     .subscribe((indic) => {
-    //       this.indicateurs = indic
-    //     })
+    this.indicateurService.getList("groups/"+this.id+"/indicators")
+        .subscribe((indic) => {
+          this.indicateurs = indic
+        })
   }
 
   getInfo(id, obj) {

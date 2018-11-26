@@ -13,9 +13,9 @@ export class AppService {
 
 
   constructor(private http: HttpClient, wsService: WebsocketService) {
-      console.log(wsService.connect())
-      this.messages = <Subject<MessageEvent>>wsService
-          .connect()
+      console.log(wsService)
+      // this.messages = <Subject<MessageEvent>>wsService
+      //     .connect()
           // .map((response: MessageEvent) => {
           // console.log(response)
           //

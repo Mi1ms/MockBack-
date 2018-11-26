@@ -19,12 +19,12 @@ export class DetailsComponent implements OnInit {
 
       let typ = this.route.snapshot.paramMap.get('typ')
 
-      // this.info.getList("indicators/"+typ)
-      //     .subscribe((indic) => {
-      //       this.details = indic
-      //       this.info.getList("groups/"+this.details.groupId)
-      //           .subscribe((client) =>  this.name = client)
-      //     })
+      this.info.getList("indicators/"+typ)
+          .subscribe((indic) => {
+            this.details = indic
+            this.info.getList("groups/"+this.details.groupId)
+                .subscribe((client) =>  this.name = client)
+          })
   }
   ForcedIndicator(data){
     data.forced = !data.forced
