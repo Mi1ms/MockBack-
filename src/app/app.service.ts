@@ -6,23 +6,15 @@ import { WebsocketService } from './websocket.service';
 @Injectable()
 
 export class AppService {
-  // const secondCount = interval(1000);
-  base_url: string = "http://localhost:3000/api/v1/";
-  public messages : Subject<MessageEvent>;
-  // url: string = 'ws://localhost:5432';
+  base_url : string = "http://localhost:3000/api/v1/";
+  messages : Subject<MessageEvent>;
+  data : any;
 
 
   constructor(private http: HttpClient, wsService: WebsocketService) {
-      console.log(wsService)
-      // this.messages = <Subject<MessageEvent>>wsService
-      //     .connect()
-          // .map((response: MessageEvent) => {
-          // console.log(response)
-          //
-          // })
-
+      wsService.getTest().subscribe(data => this.data = data)
+      console.log(this.data)
   }
-
 
   getList(get) {
     return this.http.get(this.base_url + get)
@@ -38,7 +30,5 @@ export class AppService {
                       }
                     )
   }
-
-  // secondCount.subscribe((n) => console.log(n));
 
 }

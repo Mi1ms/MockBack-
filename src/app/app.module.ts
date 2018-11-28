@@ -5,12 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
-import { AppComponent }        from './app.component';
-import { IndicateurComponent } from './indicateur/indicateur.component';
-
 import { AppService }          from './app.service';
+import { AppComponent }        from './app.component';
+
+import { IndicateurComponent } from './indicateur/indicateur.component';
 import { GroupsComponent }     from './groups/groups.component';
-import { DetailsComponent } from './indicateur/details/details.component';
+import { DetailsComponent }    from './indicateur/details/details.component';
 
 const routes: Routes = [
     { path: 'index', redirectTo: '/', pathMatch: 'full'},
