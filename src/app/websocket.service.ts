@@ -1,54 +1,39 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 import * as Rx from 'rxjs';
+import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Socket } from 'ngx-socket-io';
-import * as socketIo from 'socket.io-client';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
+
 export class WebsocketService {
-  // url: string = 'http://localhost:2400';
+  url: string = 'http://localhost:2400';
 
-  constructor(private socket: Socket) {
-    console.log(this.socket)
-   }
+  constructor(private socket: Socket, protected http: HttpClient) {
+    console.log(this.socket.ioSocket.connected)
+  }
 
-  public getSocket() {
-      return this.socket
+   // public static
+
+  public setData(msg){
+      this.socket.emit('msg', msg)
 
   }
 
-  // // private create(url)/*: Rx.Subject<Event>*/ {
-  //
-  //   let webs = new WebSocket(url);
-  //
-  //   setInterval( function(){
-  //     // console.log('helloworld')
-  //     // console.log("readystate", webs.readyState)
-  //   console.log(webs)
-  //   }, 2000)
-  // //   let observable = Rx.Observable.create(
-  // //     (obs: Rx.Observer<MessageEvent>) => {
-  // //
-  // //         webs.onmessage = obs.next.bind(obs);
-  // //         webs.onerror = obs.error.bind(obs);
-  // //         webs.onclose = obs.complete.bind(obs);
-  // //         return webs.close.bind(webs)
-  // //     }
-  // //   )
-  // //
-  // //   let observer = {
-  // //       next: (data: Object) => {
-  // //         if(webs.readyState === 1 ){
-  // //
-  // //           webs.send(JSON.stringify(data));
-  // //         }
-  // //
-  // //       }
-  // //
-  // //   }
-  // //
-  // //   return Rx.Subject.create(observer, observable)
-  // }
+  public getSocket() {
+      // RETURN SOCKET OF INOTIFY
+
+  }
+
+  public getData() {
+    // RETURN OBSERVABLE OF DATA JSON
+
+  }
+
+  public getTest() {
+
+      return of({client:[{id: 1, name: "Splicy"}, {id:2, name:"Colvin"}]})
+  }
 
 }

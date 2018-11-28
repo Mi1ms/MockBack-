@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AppService } from '../app.service';
 import { Observable, of, from, interval } from 'rxjs';
+import { WebsocketService } from '../websocket.service';
 import { map } from 'rxjs/operators';
 
 
@@ -11,37 +12,42 @@ import { map } from 'rxjs/operators';
 })
 export class GroupsComponent implements OnInit {
   groups: any;
-  object = Object.keys;
   data$: Observable<any>;
 
-  constructor(private service: AppService) {
+  constructor(private data: WebsocketService, protected app: AppService) {
+    console.log(app)
   }
 
-  ngOnInit() {  }
+  ngOnInit() {
+    this.data.getTest().pipe(
+      .map( data => data = data.client)
+    ).subscribe(data => this.groups = data)
 
-  GetIndicators(response)/*: Observable<Groups[]>*/{
-      this.groups = response;
+ }
 
-      for ( let client of response ) {
-        let search = "groups/"+client.id+"/indicators";
-        let x = client.id-1;
-        this.service.getList(search)
-          .subscribe(
-            (info) => {
-              let calcul = this.getSum(info)
-              // console.log(calcul);
-
-              this.groups[x].total = calcul.length
-              this.groups[x].sum = calcul.global
-              this.groups[x].allsuccess = calcul.success
-              this.groups[x].sumsuccess = calcul.sumsuccess
-              this.groups[x].allwarning = calcul.warning
-              this.groups[x].sumwarning = calcul.sumwarning
-              this.groups[x].alldanger = calcul.danger
-              this.groups[x].sumdanger = calcul.sumdanger
-          })
-
-      }
+  GetIndicators(response)/*: Observable<[]>*/{
+      // this.groups = response;
+      //
+      // for ( let client of response ) {
+      //   let search = "groups/"+client.id+"/indicators";
+      //   let x = client.id-1;
+      //   this.service.getList(search)
+      //     .subscribe(
+      //       (info) => {
+      //         let calcul = this.getSum(info)
+      //         // console.log(calcul);
+      //
+      //         this.groups[x].total = calcul.length
+      //         this.groups[x].sum = calcul.global
+      //         this.groups[x].allsuccess = calcul.success
+      //         this.groups[x].sumsuccess = calcul.sumsuccess
+      //         this.groups[x].allwarning = calcul.warning
+      //         this.groups[x].sumwarning = calcul.sumwarning
+      //         this.groups[x].alldanger = calcul.danger
+      //         this.groups[x].sumdanger = calcul.sumdanger
+      //     })
+      //
+      // }
   }
 
   getSum( obj ) {

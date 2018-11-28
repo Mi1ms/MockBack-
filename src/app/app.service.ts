@@ -7,28 +7,30 @@ import { WebsocketService } from './websocket.service';
 
 export class AppService {
   base_url : string = "http://localhost:3000/api/v1/";
-  messages : Subject<MessageEvent>;
+  // jsondata = Data[];
   data : any;
 
 
   constructor(private http: HttpClient, wsService: WebsocketService) {
+      // get data test of Observable
+
       wsService.getTest().subscribe(data => this.data = data)
-      console.log(this.data)
+
   }
 
-  getList(get) {
-    return this.http.get(this.base_url + get)
-  }
-
-  updateData(url, data){
-    return this.http.put(this.base_url+url, data)
-                    .subscribe(
-                        db => {
-                        db = data
-                      }, error => {
-                        console.log(error)
-                      }
-                    )
-  }
+  // LAST TECHNIQUE GET DATA
+  // getList(get) {
+  //   return this.http.get(this.base_url + get)
+  // }
+  // updateData(url, data){
+  //   return this.http.put(this.base_url+url, data)
+  //                   .subscribe(
+  //                       db => {
+  //                       db = data
+  //                     }, error => {
+  //                       console.log(error)
+  //                     }
+  //                   )
+  // }
 
 }
