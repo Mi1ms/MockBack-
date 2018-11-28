@@ -11,7 +11,8 @@ export class WebsocketService {
   url: string = 'http://localhost:2400';
 
   constructor(private socket: Socket, protected http: HttpClient) {
-    console.log(this.socket.ioSocket.connected)
+    this.getSocket()
+    this.getData()
   }
 
    // public static
@@ -23,12 +24,18 @@ export class WebsocketService {
 
   public getSocket() {
       // RETURN SOCKET OF INOTIFY
+      console.log(this.socket.ioSocket.connected)
+      if (this.socket.ioSocket.connected) {
+        console.log('Socket connected !! ')
+        // connected => receive data json server
+        // this.getData()
+      }
 
   }
 
   public getData() {
-    // RETURN OBSERVABLE OF DATA JSON
-
+    // RETURN OBSERVABLE DATA FROM JSON-SERVER
+    // return this.http.get()
   }
 
   public getTest() {
