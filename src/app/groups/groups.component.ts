@@ -15,14 +15,12 @@ export class GroupsComponent implements OnInit {
   data$: Observable<any>;
 
   constructor(private data: WebsocketService, protected app: AppService) {
-    console.log(app)
+    // console.log(app)
   }
 
   ngOnInit() {
-    this.data.getTest().pipe(
-      .map( data => data = data.client)
-    ).subscribe(data => this.groups = data)
-
+    this.app.getTest().subscribe(data => this.groups = data.groups)
+    console.log(this.groups)
  }
 
   GetIndicators(response)/*: Observable<[]>*/{

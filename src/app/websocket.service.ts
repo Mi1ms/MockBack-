@@ -12,7 +12,6 @@ export class WebsocketService {
 
   constructor(private socket: Socket, protected http: HttpClient) {
     this.getSocket()
-    this.getData()
   }
 
    // public static
@@ -31,16 +30,6 @@ export class WebsocketService {
         // this.getData()
       }
 
-  }
-
-  public getData() {
-    // RETURN OBSERVABLE DATA FROM JSON-SERVER
-    // return this.http.get()
-  }
-
-  public getTest() {
-
-      return of({client:[{id: 1, name: "Splicy"}, {id:2, name:"Colvin"}]})
   }
 
 }
