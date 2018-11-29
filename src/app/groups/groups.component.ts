@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AppService } from '../app.service';
 import { Observable, of, from, interval } from 'rxjs';
-import { WebsocketService } from '../websocket.service';
+// import { WebsocketService } from '../websocket.service';
 import { map } from 'rxjs/operators';
 
 
@@ -14,16 +14,19 @@ export class GroupsComponent implements OnInit {
   groups: any;
   data$: Observable<any>;
 
-  constructor(private data: WebsocketService, protected app: AppService) {
+  constructor(protected app: AppService) {
     // console.log(app)
   }
 
   ngOnInit() {
     this.app.getTest().subscribe(data => this.groups = data.groups)
-    console.log(this.groups)
+    // console.log( this.groups)
+    this.app.getData().subscribe(
+      value => console.log(value)
+    )
  }
 
-  GetIndicators(response)/*: Observable<[]>*/{
+  GetIndicators(response) {
       // this.groups = response;
       //
       // for ( let client of response ) {

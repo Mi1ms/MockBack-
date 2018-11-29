@@ -33,8 +33,8 @@ const config : SocketIoConfig = { url: 'http://localhost:2400', options: {} };
     BrowserModule,
     HttpClientModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    RouterModule.forRoot(routes)
   ],
   providers: [
     AppService,

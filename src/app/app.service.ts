@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Observable, Subject } from 'rxjs';
 import { WebsocketService } from './websocket.service';
-import { of } from 'rxjs';
+import { Data } from './data';
+import { Observable, Subject, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 
@@ -13,22 +14,21 @@ export class AppService {
 
 
   constructor(private http: HttpClient, wsService: WebsocketService) {
-      // get data test of Observable
-
       //wsService.getTest().subscribe(data => this.data = data)
 
   }
-  public getData()/*: */ {
+  public getData(): Observable<Object > {
     // RETURN OBSERVABLE DATA FROM JSON-SERVER
-    // return this.http.get<>()
+    return this.http.get<Object>(this.base_url)//.pipe(
+    //  map( result  =>  console.log() )
+    //);
   }
 
   public getTest() {
 
-    // let test =
-
       return of({groups:[{id: 1, name: "Splicy"}, {id:2, name:"Colvin"}]})
   }
+
   // LAST TECHNIQUE GET DATA
   getList(get) {
     return this.http.get(this.base_url + get)
